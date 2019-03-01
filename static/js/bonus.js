@@ -1,10 +1,12 @@
 // Enter a speed between 0 and 180
-0
-var level = 175;
+
+function plotDial(washfreq){
+var washfreq = washfreq
+
+var level = 189 + 18 * washfreq;
 
 // Trig to calc meter point
-var degrees = 180
-0 - level,
+var degrees = 0 - level,
      radius = .5;
 var radians = degrees * Math.PI / 180
 0;
@@ -28,14 +30,17 @@ var data = [{ type: 'scatter',
     hoverinfo: 'text+name'},
   { values: [1,1,1,1,1,1,1,1,1,1,10],
   rotation: 90,
-  text: ['9', '8', '7', '6', '5', '4', '3', '2', '1', '0'],
+  text: ['9', '8', '7', '6', '5', '4', '3', '2', '1', '0',''],
   textinfo: 'text',
   textposition:'inside',
   colorscale: 'Jet',
   marker: {
-  	  colorscale: 'Jet',
-	  colors: [0,10,20,30,40,50,60,70,80,90, 100],
-	},
+    colors:['rgba(14, 127, 0, .5)', 'rgba(50, 135, 10, .5)', 'rgba(110, 154, 22, .5)',
+             'rgba(140, 175, 32, .5)', 'rgba(170, 202, 42, .5)', 'rgba(186, 205, 68, .5)',
+             'rgba(202, 209, 95, .5)','rgba(207, 208, 130, .5)','rgba(210, 206, 145, .5)', 
+             'rgba(222, 216, 175, .5)','rgba(255, 255, 255, 0)']
+           },
+  labels: ['9', '8', '7', '6', '5', '4', '3', '2', '1', '0', ''],
   hoverinfo: 'label',
   hole: .5,
   type: 'pie',
@@ -62,3 +67,4 @@ var layout = {
 };
 
 Plotly.newPlot('gauge', data, layout);
+};
